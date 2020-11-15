@@ -41,7 +41,7 @@ a:hover {
 }
 
 .publ td {
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 .ecobooks {
@@ -62,12 +62,24 @@ a:hover {
 
 .schaduw {
 	box-shadow: 3px 3px 3px #999;
+	max-width: 240px;
+	width: 100%;
+}
+.cta {
+	font-size: 14pt;
+	color:#213345;
+	text-align: center;
+	display: block;
+}
+.cta:hover {
+	color:#213345;
+	text-decoration: none;
 }
 
 /* Navigatie */
 #nav {
 	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-	font-size:18px;
+	font-size:20px;
 	margin-right: 15px;
 	display: flex;
 	align-items: center;
@@ -85,12 +97,12 @@ a:hover {
 }
 
 #nav a {
-	color: #848484;
+	color:#213345;
 	text-decoration: none;
 }
 
 #nav a:hover {
-	color:#213345;
+	text-decoration: underline;
 }
 
 #banner {
@@ -128,7 +140,7 @@ a:hover {
 	border-width:1px 1px 0px 1px;
 	border-color:#D8D8D8;
 }
-#container.about {
+.about {
 	display: flex;
 	justify-content: space-between;
 }
@@ -161,6 +173,9 @@ img.ecobooks-logo {
 
 @media only screen and (max-width: 768px) {
 	#banner .ecobooks {
-	font-size: 20pt;
-}
+		font-size: 20pt;
+	}
+	.publ td {
+		display: block;
+	}
 }

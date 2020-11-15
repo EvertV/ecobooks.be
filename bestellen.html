@@ -15,7 +15,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<script src="js/btw.js?v=1"></script>
-		<script src="js/adres.js?v=1"></script>
 		<script src="js/prijsBerekenen.js?v=1.1.2"></script>
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
@@ -25,15 +24,13 @@
 		<![endif]-->
 	</head>
 
-<body onload="initialize()">
+<body>
 	<header id="banner">
 		<div class="banner-inner">
 			<span class="ecobooks"><a href="index.html"><img src="i/logo_klein.png" alt="Ecobooks logo">Ecobooks</a></span>
 			<nav id="nav">
 				<ul>
-					<li><a href="publicaties.html">Verschenen&nbsp;publicaties</a></li>
-					<li>&nbsp;|&nbsp;</li>
-					<li class="huidige_pagina"><a href="bestellen.html">Bestel&nbsp;publicaties</a></li>
+					<li class="huidige_pagina"><a href="bestellen.html">Bestel publicaties</a></li>
 				</ul>
 			</nav>	
 		</div>	
@@ -49,49 +46,42 @@
 				
 				<li>
 					<label for="name">Volledige naam</label>
-					<input type="text" name="name" placeholder="Jan Jansens" required="">
+					<input class="formField" type="text" name="name" placeholder="Jan Jansens" required="" />
 				</li>
 				<li>
 					<label for="email">Email adres</label>
-					<input type="email" name="email" placeholder="jan@example.com" required="">
+					<input class="formField" type="email" name="email" placeholder="jan@example.com" required="" />
 				</li>								
 				<li>
 					<label for="functie">Organisatie/functie</label>
-					<input type="text" name="functie" placeholder="" required="">
+					<input class="formField" type="text" name="functie" placeholder="" />
 				</li>
 				<li>
-							
-					<table id="address">
-					<tr>
-					  <td class="label">Straat & nr.</td>
-					  <td class="wideField" colspan="2"><input class="field" id="route" name="route" required=""></input></td>
-					  <td class="slimField"><input class="field" name="street_number" id="street_number" required=""></input></td>
-					</tr>
-					<tr>
-					  <td class="label">Gemeente</td>
-					  <td class="wideField" colspan="3"><input class="field" name="locality" id="locality" required=""></input></td>
-					</tr>
-					<tr>
-					  <td class="label">Provincie</td>
-					  <td class="wideField"><input class="field" name="administrative_area_level_1" id="administrative_area_level_1" required=""></input></td>
-					  <td class="label">Postcode</td>
-					  <td class="slimField"><input class="field" name="postal_code" id="postal_code" required=""></input></td>
-					</tr>
-					<tr>
-					  <td class="label">Land</td>
-					  <td class="wideField" colspan="3"><input class="field" name="country" id="country" onchange="berekenPrijs()" required=""></input></td>
-					</tr>
-				  </table>
-				
+					<label for="functie">Straat & nummer</label>
+					<input class="formField" type="text" id="street" name="street" required="" />
+				</li>
+				<li>
+					<label for="functie">Postcode</label>
+					<input class="formField" type="text" name="postal_code" id="postal_code" required="" />
+				</li>
+				<li>
+					<label for="functie">Gemeente</label>
+					<input class="formField" type="text" name="town" id="town" required="" />
+				</li>
+				<li>
+					<label for="functie">Land</label>
+					<input class="formField" type="text" name="country" id="country" onchange="berekenPrijs()" required="" value="België" />
+				</li>
 				</li>	
 				<li>
-					<input type="checkbox" name="factuur" value="Aangevinkt" onclick="unhide('hidden-input', this)" />
-					<label for="factuur">Ik wil een factuur ontvangen</label>
+					<input type="checkbox" name="factuur" id="factuur" value="Aangevinkt" onclick="unhide('hidden-input', this)">
+						<label for="factuur">Ik wil een factuur ontvangen</label>
+					</input>
 				</li>
 				<div id="hidden-input">
 					<li>
 						<label for="btw">BTW nummer</label>
-						<input type="text" name="btw">
+						<input type="text" name="btw" />
 					</li>
 				</div>
 				<li>
@@ -102,32 +92,38 @@
 				<h4>Aantal</h4>
 				
 				<li>
-					<input type="number" name="waterbeheer" id="waterbeheer" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
-					Gemeentelijk waterbeheer in het buitengebied (10,00 EUR excl. BTW)
+					<input type="button" onclick="addToField('waterbeheer')" required="" value="+" />
+					<input type="number" name="waterbeheer" id="waterbeheer" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
+					<input type="button" onclick="removeFromField('waterbeheer')" required="" value="-" />
+					Gemeentelijk waterbeheer in het buitengebied (20,00 EUR excl. BTW)
 				</li>
 				<li>
-					<input type="number" name="CD" id="CD" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
+					<input type="button" onclick="addToField('CD')" required="" value="+" />
+					<input type="number" name="CD" id="CD" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
+					<input type="button" onclick="removeFromField('CD')" required="" value="-" />
 					USB-stick met alle powerpointpresentaties van de studiedag (10,00 EUR excl. BTW)
 				</li>
 				<li>
-					<input type="number" name="duurzaam" id="duurzaam" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
-					Duurzaam en Gezond Bouwen en Wonen (10,00 EUR excl. BTW)
+					<input type="button" onclick="addToField('duurzaam')" required="" value="+" />
+					<input type="number" name="duurzaam" id="duurzaam" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
+					<input type="button" onclick="removeFromField('duurzaam')" required="" value="-" />
+					Duurzaam en Gezond Bouwen en Wonen (20,00 EUR excl. BTW)
 				</li>
 				<li>
-					<input type="text" name="totaal" id="totaal" readonly="readonly" size="10">
+					<input type="text" name="totaal" id="totaal" readonly="readonly" size="10" placeholder="00.00 EUR">
 					Totaal incl. 6% BTW <span id="verzendKostenTekst">en verzendkosten*</span><br>
 					<br>
 					<table>
 						<tr>
 							<td>* Verzendkosten:</td>
-							<td>binnen België = 10,00 EUR</td>
+							<td>GRATIS binnen België (max. 3 stuks)</td>
 						</tr>
 							<td></td>
 							<td>buiten België = 20,00 EUR</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td>voor 2 of meer producten = contacteer ons of zie Bpost</td>
+							<td><em>contacteer ons voor bestelling met meer dan 3 stuks</em></td>
 						</tr>
 					</table>
 					
@@ -144,7 +140,7 @@
 					</div>
  				</li>				
 				<li>
-					<button id="ga_verder" class="submit" onclick="berekenPrijs()" type="submit">Ga verder</button>
+					<button id="ga_verder" class="submit" onclick="berekenPrijs()" type="submit">Gegevens controleren</button>
 				</li>
 				
 			</ul>

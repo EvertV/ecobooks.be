@@ -50,6 +50,10 @@ body {
 input[type="number"] {
 	width: 50px;
 }
+input[type="text"].formField, input[type="email"].formField {
+    max-width: 300px;
+    width: 100%;
+}
 @media only screen and (max-width: 768px) {
     #address {
         display:block;

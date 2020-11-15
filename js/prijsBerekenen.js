@@ -11,9 +11,9 @@ function berekenPrijs() {
 	var c = parseInt(duurzaam) || 0;
 	var totaalAantal = a + b + c;
 	
-	if (totaalAantal <= 1) {
+	if (totaalAantal <= 3) {
 		if (["belgië", "belgie", "belgium"].includes(land.toLowerCase().trim())) {
-			verzendPerStuk = 10;
+			verzendPerStuk = 0;
 		} else {
 			verzendPerStuk = 20;
 		}
@@ -25,9 +25,9 @@ function berekenPrijs() {
 	
 	verzendingKost = verzendPerStuk * totaalAantal;
 	
-	var kostprijsWater = 10 * water;
+	var kostprijsWater = 20 * water;
 	var kostprijsCD = 10 * CD;
-	var kostprijsDuurzaam = 10 * duurzaam;
+	var kostprijsDuurzaam = 20 * duurzaam;
 	
 	var uitvoer = kostprijsWater + kostprijsCD + kostprijsDuurzaam + verzendingKost;
 	
@@ -60,4 +60,23 @@ function berekenPrijs() {
 	document.getElementById('kostprijsWater').value = kostprijsWater;
 	document.getElementById('kostprijsCD').value = kostprijsCD;
 	document.getElementById('kostprijsDuurzaam').value = kostprijsDuurzaam;
+}
+
+function addToField(fieldName) {
+	let fieldNameValue = parseInt(document.getElementById(fieldName).value) || 0;
+
+	fieldNameValue += 1;
+
+	document.getElementById(fieldName).value = fieldNameValue;
+
+	berekenPrijs();
+}
+function removeFromField(fieldName) {
+	let fieldNameValue = parseInt(document.getElementById(fieldName).value) || 0;
+
+	fieldNameValue -= 1;
+
+	document.getElementById(fieldName).value = fieldNameValue < 0 ? 0 : fieldNameValue;
+
+	berekenPrijs();
 }

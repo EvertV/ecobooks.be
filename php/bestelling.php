@@ -14,9 +14,7 @@ $totaalAantal = strip_tags($_POST['totaalAantal']);
 $verzendPerStuk = strip_tags($_POST['verzendPerStuk']);
 
 $straat = strip_tags($_POST['straat']);
-$straat_nr = strip_tags($_POST['straat_nr']);
 $gemeente = strip_tags($_POST['gemeente']);
-$provincie = strip_tags($_POST['provincie']);
 $postcode = strip_tags($_POST['postcode']);
 $land = strip_tags($_POST['land']);
 if (strtolower($land) == "belgië") {
@@ -37,7 +35,7 @@ $message =
 			'Naam: <b>'.$naam.'</b><br>'.
 			'Email: <b>'.$email.'</b><br>'.
 			'Functie: <b>'.$functie.'</b><br>'.
-			'Adres: <b>'.$straat.' '.$straat_nr.', '.$postcode.' '.$gemeente.', '.$provincie.', '.$land.'</b><br>'.
+			'Adres: <b>'.$straat.', '.$postcode.' '.$gemeente.', '.$land.'</b><br>'.
 			'BTW nummer: <b>'.$btw.'</b><br>'.
 			'Extra informatie:<br><b>'.$extra.'</b><br>'.
 		'<br><br>'.
@@ -50,7 +48,7 @@ $message =
 			'</tr>'.
 			'<tr>'.
 				'<td>Gemeentelijk waterbeheer in het buitengebied</td>'.
-				'<td>10 EUR</td>'.
+				'<td>20 EUR</td>'.
 				'<td>'.$waterbeheer.'</td>'.
 				'<td>'.$kostprijsWater.' EUR</td>'.
 			'</tr>'.
@@ -62,7 +60,7 @@ $message =
 			'</tr>'.
 			'<tr>'.
 				'<td>Duurzaam en Gezond Bouwen en Wonen</td>'.
-				'<td>10 EUR</td>'.
+				'<td>20 EUR</td>'.
 				'<td>'.$duurzaam.'</td>'.
 				'<td>'.$kostprijsDuurzaam.' EUR</td>'.
 			'</tr>'.
@@ -141,9 +139,7 @@ echo 'OEPS';
 			<span class="ecobooks"><a href="../index.html"><img src="../i/logo_klein.png" alt="Ecobooks logo">Ecobooks</a></span>
 			<nav id="nav">
 				<ul>
-					<li><a href="../publicaties.html">Verschenen&nbsp;publicaties</a></li>
-					<li>&nbsp;|&nbsp;</li>
-					<li><a href="../bestellen.html">Bestel&nbsp;publicaties</a></li>
+					<li><a href="../bestellen.html">Bestel publicaties</a></li>
 				</ul>
 			</nav>
 		</div>		

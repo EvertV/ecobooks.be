@@ -24,9 +24,7 @@
 			<span class="ecobooks"><a href="../index.html"><img src="../i/logo_klein.png" alt="Ecobooks logo">Ecobooks</a></span>
 			<nav id="nav">
 				<ul>
-					<li><a href="../publicaties.html">Verschenen&nbsp;publicaties</a></li>
-					<li>&nbsp;|&nbsp;</li>
-					<li><a href="../bestellen.html">Bestel&nbsp;publicaties</a></li>
+					<li><a href="../bestellen.html">Bestel publicaties</a></li>
 				</ul>
 			</nav>		
 		</div>
@@ -50,10 +48,8 @@
 			$totaalAantal = strip_tags($_POST['totaalAantal']);
 			$verzendPerStuk = strip_tags($_POST['verzendPerStuk']);
 			
-			$straat = strip_tags($_POST['route']);
-			$straat_nr = strip_tags($_POST['street_number']);
-			$gemeente = strip_tags($_POST['locality']);
-			$provincie = strip_tags($_POST['administrative_area_level_1']);
+			$straat = strip_tags($_POST['street']);
+			$gemeente = strip_tags($_POST['town']);
 			$postcode = strip_tags($_POST['postal_code']);
 			$land = strip_tags($_POST['country']);
 			
@@ -66,7 +62,7 @@
 			echo "Naam: <b>".$naam."</b><br>";
 			echo "Email: <b>".$email."</b><br>";
 			echo "Functie: <b>".$functie."</b><br>";
-			echo "Adres: <b>".$straat." ".$straat_nr.", ".$postcode." ".$gemeente.", ".$provincie.", ".$land."</b><br>";
+			echo "Adres: <b>".$straat.", ".$postcode." ".$gemeente.", ".$land."</b><br>";
 			echo "BTW nummer: <b>".$btw."</b><br>";
 			echo "Extra informatie:<br><b>".$extra."</b><br>";
 		?>
@@ -80,7 +76,7 @@
 			</tr>
 			<tr>
 				<td>Gemeentelijk waterbeheer in het buitengebied</td>
-				<td>10 EUR</td>
+				<td>20 EUR</td>
 				<?php
 				echo "<td>".$waterbeheer."</td>\n";
 				echo "<td>".$kostprijsWater." EUR</td>\n";
@@ -96,7 +92,7 @@
 			</tr>
 			<tr>
 				<td>Duurzaam en Gezond Bouwen en Wonen</td>
-				<td>10 EUR</td>
+				<td>20 EUR</td>
 				<?php
 				echo "<td>".$duurzaam."</td>\n";
 				echo "<td>".$kostprijsDuurzaam." EUR</td>\n";
@@ -157,9 +153,7 @@
 			echo "<input type='text' name='verzendPerStuk' id='verzendPerStuk' value='".$verzendPerStuk."'> ";
 			
 			echo "<input type='text' name='straat' id='straat' value='".$straat."'> ";
-			echo "<input type='text' name='straat_nr' id='straat_nr' value='".$straat_nr."'> ";
 			echo "<input type='text' name='gemeente' id='gemeente' value='".$gemeente."'> ";
-			echo "<input type='text' name='provincie' id='provincie' value='".$provincie."'> ";
 			echo "<input type='text' name='postcode' id='postcode' value='".$postcode."'> ";
 			echo "<input type='text' name='land' id='land' value='".$land."'> ";
 			
