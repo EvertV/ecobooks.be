@@ -21,11 +21,11 @@ function berekenPrijs() {
 
 	if (totaalAantal <= 3) {
 		if (["belgië", "belgie", "belgium"].includes(land.toLowerCase().trim())) {
-			verzendPerStuk = 0;
+			verzendingKost = 0;
 		} else {
-			verzendPerStuk = 20;
+			verzendingKost = 20;
 		}
-		verzendingKost = verzendPerStuk * totaalAantal;
+		verzendPerStuk = verzendingKost;
 		kostprijsWater = 20 * water;
 		kostprijsCD = 10 * CD;
 		kostprijsDuurzaam = 20 * duurzaam;
@@ -36,6 +36,11 @@ function berekenPrijs() {
 	} else {
 		verzendingKost = "XX";
 		verzendPerStuk = "XX";
+		kostprijsWater = 20 * water;
+		kostprijsCD = 10 * CD;
+		kostprijsDuurzaam = 20 * duurzaam;
+		
+		uitvoer = kostprijsWater + kostprijsCD + kostprijsDuurzaam;
 		document.getElementById("verzendKostenTekst").innerHTML = ", excl. verzendkosten*";
 	}
 
