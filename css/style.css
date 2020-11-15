@@ -1,0 +1,166 @@
+/* CSS document voor Ecobooks */
+body {
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	background-image:url('../i/achtergrond.jpg');
+	padding:0;
+	margin:0;
+	color:#213345;
+}
+
+h1 {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-weight: lighter;
+	font-size: 18pt;
+	color:#006600;
+}
+
+h3 {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-weight: lighter;
+	font-size: 18pt;
+	color:#006600;
+}
+
+h4 {
+	font-weight: lighter;
+	font-size: 14pt;
+	border-bottom:1px solid #BBBBBB;
+}
+
+a {
+	color:#0040FF;
+}
+
+a:hover {
+	color:#2E9AFE;
+}
+
+
+.huidige_pagina {
+	text-decoration: underline;
+}
+
+.publ td {
+	vertical-align: top;
+}
+
+.ecobooks {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-weight: lighter;
+	font-size: 32pt;
+}
+.ecobooks a {
+	text-decoration: none;	
+	color: #213345;
+	margin-left: 25px;
+}
+
+.titel_publicatie {
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+.schaduw {
+	box-shadow: 3px 3px 3px #999;
+}
+
+/* Navigatie */
+#nav {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-size:18px;
+	margin-right: 15px;
+	display: flex;
+	align-items: center;
+	padding: 8px;
+}
+
+#nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+#nav li {
+	list-style-type: none;
+	display: inline;
+}
+
+#nav a {
+	color: #848484;
+	text-decoration: none;
+}
+
+#nav a:hover {
+	color:#213345;
+}
+
+#banner {
+	display: flex;
+	justify-content: center;
+}
+.banner-inner {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 980px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#banner img {
+	margin-right:8px;
+	
+}
+#banner .ecobooks a {
+	margin-right:8px;
+	display: flex;
+	align-items: center;
+}
+/* Container */
+#container {
+	margin: 10px 10px 0px 10px;
+	max-width: 980px;
+	background-color: #FAFAFA;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	border-style:solid;
+	border-width:1px 1px 0px 1px;
+	border-color:#D8D8D8;
+}
+#container.about {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Aside */
+img.ecobooks-logo {
+	background-color: #F2F2F2;
+	padding: 5px 5px 2px 5px;
+    max-width: 300px;
+    width: 100%;
+    max-height: 300px;
+}
+
+/* Footer */
+#footer {	
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 980px;
+	background-color: #FAFAFA;
+	border-style:solid;
+	border-width:1px 1px 1px 1px;
+	border-color:#D8D8D8;
+	padding: 20px;
+}
+
+#footer p {
+	text-align: center;
+	font-size: 10pt;
+}
+
+@media only screen and (max-width: 768px) {
+	#banner .ecobooks {
+	font-size: 20pt;
+}
+}

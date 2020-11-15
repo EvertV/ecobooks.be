@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html lang="nl">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Bestellen | Ecobooks</title>
+		<meta name="description" content="Advies en Uitgeverij voor duurzame ontwikkeling">
+		<meta name="author" content="Hugo Vanderstadt">
+
+		<link rel="shortcut icon" href="favicon.ico" />
+		
+		<link rel="stylesheet" href="css/style.css?v=1.2">
+		<link rel="stylesheet" href="css/bestelformulier.css?v=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script src="js/btw.js?v=1"></script>
+		<script src="js/adres.js?v=1"></script>
+		<script src="js/prijsBerekenen.js?v=1.1.2"></script>
+		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+		
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+<body onload="initialize()">
+	<header id="banner">
+		<div class="banner-inner">
+			<span class="ecobooks"><a href="index.html"><img src="i/logo_klein.png" alt="Ecobooks logo">Ecobooks</a></span>
+			<nav id="nav">
+				<ul>
+					<li><a href="publicaties.html">Verschenen&nbsp;publicaties</a></li>
+					<li>&nbsp;|&nbsp;</li>
+					<li class="huidige_pagina"><a href="bestellen.html">Bestel&nbsp;publicaties</a></li>
+				</ul>
+			</nav>	
+		</div>	
+	</header>
+
+	<div id="container">
+		<h1>Bestelformulier</h1>
+		
+		<form class="bestelformulier" action="php/validatie.php" method="post" valign="top">						
+			<ul>
+			
+				<h4>Persoonsgegevens</h4>
+				
+				<li>
+					<label for="name">Volledige naam</label>
+					<input type="text" name="name" placeholder="Jan Jansens" required="">
+				</li>
+				<li>
+					<label for="email">Email adres</label>
+					<input type="email" name="email" placeholder="jan@example.com" required="">
+				</li>								
+				<li>
+					<label for="functie">Organisatie/functie</label>
+					<input type="text" name="functie" placeholder="" required="">
+				</li>
+				<li>
+							
+					<table id="address">
+					<tr>
+					  <td class="label">Straat & nr.</td>
+					  <td class="wideField" colspan="2"><input class="field" id="route" name="route" required=""></input></td>
+					  <td class="slimField"><input class="field" name="street_number" id="street_number" required=""></input></td>
+					</tr>
+					<tr>
+					  <td class="label">Gemeente</td>
+					  <td class="wideField" colspan="3"><input class="field" name="locality" id="locality" required=""></input></td>
+					</tr>
+					<tr>
+					  <td class="label">Provincie</td>
+					  <td class="wideField"><input class="field" name="administrative_area_level_1" id="administrative_area_level_1" required=""></input></td>
+					  <td class="label">Postcode</td>
+					  <td class="slimField"><input class="field" name="postal_code" id="postal_code" required=""></input></td>
+					</tr>
+					<tr>
+					  <td class="label">Land</td>
+					  <td class="wideField" colspan="3"><input class="field" name="country" id="country" onchange="berekenPrijs()" required=""></input></td>
+					</tr>
+				  </table>
+				
+				</li>	
+				<li>
+					<input type="checkbox" name="factuur" value="Aangevinkt" onclick="unhide('hidden-input', this)" />
+					<label for="factuur">Ik wil een factuur ontvangen</label>
+				</li>
+				<div id="hidden-input">
+					<li>
+						<label for="btw">BTW nummer</label>
+						<input type="text" name="btw">
+					</li>
+				</div>
+				<li>
+					<label for="extra">Extra informatie</label>
+					<textarea name="extra" rows="6"></textarea>
+				</li>
+								
+				<h4>Aantal</h4>
+				
+				<li>
+					<input type="number" name="waterbeheer" id="waterbeheer" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
+					Gemeentelijk waterbeheer in het buitengebied (10,00 EUR excl. BTW)
+				</li>
+				<li>
+					<input type="number" name="CD" id="CD" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
+					USB-stick met alle powerpointpresentaties van de studiedag (10,00 EUR excl. BTW)
+				</li>
+				<li>
+					<input type="number" name="duurzaam" id="duurzaam" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="">
+					Duurzaam en Gezond Bouwen en Wonen (10,00 EUR excl. BTW)
+				</li>
+				<li>
+					<input type="text" name="totaal" id="totaal" readonly="readonly" size="10">
+					Totaal incl. 6% BTW <span id="verzendKostenTekst">en verzendkosten*</span><br>
+					<br>
+					<table>
+						<tr>
+							<td>* Verzendkosten:</td>
+							<td>binnen België = 10,00 EUR</td>
+						</tr>
+							<td></td>
+							<td>buiten België = 20,00 EUR</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>voor 2 of meer producten = contacteer ons of zie Bpost</td>
+						</tr>
+					</table>
+					
+					<div style="display:none;">
+						<input type="text" name="kostprijsWater" id="kostprijsWater">
+						<input type="text" name="kostprijsCD" id="kostprijsCD"> 
+						<input type="text" name="kostprijsDuurzaam" id="kostprijsDuurzaam">
+						
+						<input type="text" name="totaalZonderBTW" id="totaalZonderBTW">
+						<input type="text" name="verzendingKost" id="verzendingKost">
+						<input type="text" name="verzendPerStuk" id="verzendPerStuk"> 
+						<input type="text" name="enkelBTW" id="enkelBTW"> 
+						<input type="text" name="totaalAantal" id="totaalAantal"> 
+					</div>
+ 				</li>				
+				<li>
+					<button id="ga_verder" class="submit" onclick="berekenPrijs()" type="submit">Ga verder</button>
+				</li>
+				
+			</ul>
+		</form>
+	</div>
+
+	<footer id="footer">
+		<p>
+			<br>
+			<script>
+         var dt = new Date();
+         document.write(dt.getFullYear() ); </script> &copy; Ecobooks 
+			<br>
+			<br>
+			<b>Verwante links</b>
+			<br>
+			<a href="http://www.eco-housing.be/" TARGET="_blank">Eco Housing</a> 
+			<br>
+			<a href="http://www.hetautonomehuis.be/" TARGET="_blank">Het Autonome Huis</a> 
+			<br>
+			<a href="https://www.hugovanderstadt.be/" TARGET="_blank">hugovanderstadt.be</a> 
+		</p>
+	</footer>
+		
+</body>
