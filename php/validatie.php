@@ -55,13 +55,13 @@
 			
 			$naam = strip_tags($_POST['name']);
 			$email = strip_tags($_POST['email']);
-			$functie = strip_tags($_POST['functie']);
+			$company = strip_tags($_POST['company']);
 			$btw = strip_tags($_POST['btw']);
 			$extra = nl2br(strip_tags($_POST['extra']));
 			
 			echo "Naam: <b>".$naam."</b><br>";
 			echo "Email: <b>".$email."</b><br>";
-			echo "Functie: <b>".$functie."</b><br>";
+			echo "Functie: <b>".$company."</b><br>";
 			echo "Adres: <b>".$straat.", ".$postcode." ".$gemeente.", ".$land."</b><br>";
 			echo "BTW nummer: <b>".$btw."</b><br>";
 			echo "Extra informatie:<br><b>".$extra."</b><br>";
@@ -159,7 +159,7 @@
 			
 			echo "<input type='text' name='name' id='name' value='".$naam."'> ";
 			echo "<input type='text' name='email' id='email' value='".$email."'> ";
-			echo "<input type='text' name='functie' id='functie' value='".$functie."'> ";
+			echo "<input type='text' name='company' id='company' value='".$company."'> ";
 			echo "<input type='text' name='btw' id='btw' value='".$btw."'> ";
 			echo "<input type='text' name='extra' id='extra' value='".$extra."'> ";
 			?>

@@ -52,23 +52,23 @@
 					<input class="formField" type="email" name="email" placeholder="jan@example.com" required="" />
 				</li>								
 				<li>
-					<label for="functie">Organisatie/functie</label>
-					<input class="formField" type="text" name="functie" placeholder="" />
+					<label for="company">Organisatie/functie</label>
+					<input class="formField" type="text" id="company" name="company" placeholder="" />
 				</li>
 				<li>
-					<label for="functie">Straat & nummer</label>
+					<label for="street">Straat & nummer</label>
 					<input class="formField" type="text" id="street" name="street" required="" />
 				</li>
 				<li>
-					<label for="functie">Postcode</label>
+					<label for="postal_code">Postcode</label>
 					<input class="formField" type="text" name="postal_code" id="postal_code" required="" />
 				</li>
 				<li>
-					<label for="functie">Gemeente</label>
+					<label for="town">Gemeente</label>
 					<input class="formField" type="text" name="town" id="town" required="" />
 				</li>
 				<li>
-					<label for="functie">Land</label>
+					<label for="country">Land</label>
 					<input class="formField" type="text" name="country" id="country" onchange="berekenPrijs()" required="" value="België" />
 				</li>
 				</li>	
@@ -91,21 +91,21 @@
 				<h4>Aantal</h4>
 				
 				<li>
-					<input type="button" onclick="addToField('waterbeheer')" required="" value="+" />
-					<input type="number" name="waterbeheer" id="waterbeheer" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
-					<input type="button" onclick="removeFromField('waterbeheer')" required="" value="-" />
+					<input type="button" onclick="addToField('waterbeheer')"  value="+" />
+					<input type="number" name="waterbeheer" id="waterbeheer" maxlength="4" size="1" min="0" value="0" onchange="berekenPrijs()" required="" />
+					<!-- <input type="button" onclick="removeFromField('waterbeheer')"  value="-" /> -->
 					Gemeentelijk waterbeheer in het buitengebied (20,00 EUR excl. BTW)
 				</li>
 				<li>
-					<input type="button" onclick="addToField('CD')" required="" value="+" />
-					<input type="number" name="CD" id="CD" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
-					<input type="button" onclick="removeFromField('CD')" required="" value="-" />
+					<input type="button" onclick="addToField('CD')" value="+" />
+					<input type="number" name="CD" id="CD" maxlength="4" size="1" min="0" value="0" onchange="berekenPrijs()" required="" />
+					<!-- <input type="button" onclick="removeFromField('CD')" value="-" /> -->
 					USB-stick met alle powerpointpresentaties van de studiedag (10,00 EUR excl. BTW)
 				</li>
 				<li>
-					<input type="button" onclick="addToField('duurzaam')" required="" value="+" />
-					<input type="number" name="duurzaam" id="duurzaam" maxlength="4" size="1" value="0" onchange="berekenPrijs()" required="" />
-					<input type="button" onclick="removeFromField('duurzaam')" required="" value="-" />
+					<input type="button" onclick="addToField('duurzaam')" value="+" />
+					<input type="number" name="duurzaam" id="duurzaam" maxlength="4" size="1" min="0" value="0" onchange="berekenPrijs()" required="" />
+					<!-- <input type="button" onclick="removeFromField('duurzaam')" value="-" /> -->
 					Duurzaam en Gezond Bouwen en Wonen (20,00 EUR excl. BTW)
 				</li>
 				<li>

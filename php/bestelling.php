@@ -22,7 +22,7 @@ if (strtolower($land) == "belgië") {
 }
 $naam = strip_tags($_POST['name']);
 $email = strip_tags($_POST['email']);
-$functie = strip_tags($_POST['functie']);
+$company = strip_tags($_POST['company']);
 $btw = strip_tags($_POST['btw']);
 $extra = nl2br(strip_tags($_POST['extra']));
 
@@ -34,7 +34,7 @@ $message =
 		'</div>'.
 			'Naam: <b>'.$naam.'</b><br>'.
 			'Email: <b>'.$email.'</b><br>'.
-			'Functie: <b>'.$functie.'</b><br>'.
+			'Functie: <b>'.$company.'</b><br>'.
 			'Adres: <b>'.$straat.', '.$postcode.' '.$gemeente.', '.$land.'</b><br>'.
 			'BTW nummer: <b>'.$btw.'</b><br>'.
 			'Extra informatie:<br><b>'.$extra.'</b><br>'.

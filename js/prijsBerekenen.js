@@ -1,15 +1,16 @@
 function berekenPrijs() {
-	var water = document.getElementById("waterbeheer").value;
-	var CD = document.getElementById("CD").value;
-	var duurzaam = document.getElementById("duurzaam").value;
+	var waterValue = document.getElementById("waterbeheer").value;
+	var CDValue = document.getElementById("CD").value;
+	var duurzaamValue = document.getElementById("duurzaam").value;
 	var land = document.getElementById("country").value;
 	var verzendPerStuk;
 	land = land.toLowerCase() 
 	
-	var a = parseInt(water) || 0;
-	var b = parseInt(CD) || 0;
-	var c = parseInt(duurzaam) || 0;
-	var totaalAantal = a + b + c;
+	var water = Math.abs(parseInt(waterValue)) || 0;
+	var CD = Math.abs(parseInt(CDValue)) || 0;
+	var duurzaam = Math.abs(parseInt(duurzaamValue)) || 0;
+
+	var totaalAantal = water + CD + duurzaam;
 	
 	if (totaalAantal <= 3) {
 		if (["belgië", "belgie", "belgium"].includes(land.toLowerCase().trim())) {
@@ -19,7 +20,7 @@ function berekenPrijs() {
 		}
 		document.getElementById("verzendKostenTekst").innerHTML = "en verzendkosten*";
 	} else {
-		verzendPerStuk = 0;
+		verzendPerStuk = -1;
 		document.getElementById("verzendKostenTekst").innerHTML = ", excl. verzendkosten*";
 	}
 	
@@ -31,7 +32,7 @@ function berekenPrijs() {
 	
 	var uitvoer = kostprijsWater + kostprijsCD + kostprijsDuurzaam + verzendingKost;
 	
-	if (verzendingKost == 0) {
+	if (verzendingKost == -1) {
 		verzendingKost = "XX";
 		verzendPerStuk = "XX"
 	}
@@ -60,6 +61,11 @@ function berekenPrijs() {
 	document.getElementById('kostprijsWater').value = kostprijsWater;
 	document.getElementById('kostprijsCD').value = kostprijsCD;
 	document.getElementById('kostprijsDuurzaam').value = kostprijsDuurzaam;
+	
+
+	document.getElementById("waterbeheer").value = water;
+	document.getElementById("CD").value = CD;
+	document.getElementById("duurzaam").value = duurzaam;
 }
 
 function addToField(fieldName) {
