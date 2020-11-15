@@ -12,29 +12,31 @@ function berekenPrijs() {
 
 	var totaalAantal = water + CD + duurzaam;
 	
+
+	let kostprijsWater;
+	let kostprijsCD;
+	let kostprijsDuurzaam;
+	
+	let uitvoer;
+
 	if (totaalAantal <= 3) {
 		if (["belgië", "belgie", "belgium"].includes(land.toLowerCase().trim())) {
 			verzendPerStuk = 0;
 		} else {
 			verzendPerStuk = 20;
 		}
+		verzendingKost = verzendPerStuk * totaalAantal;
+		kostprijsWater = 20 * water;
+		kostprijsCD = 10 * CD;
+		kostprijsDuurzaam = 20 * duurzaam;
+		
+		uitvoer = kostprijsWater + kostprijsCD + kostprijsDuurzaam + verzendingKost;
+
 		document.getElementById("verzendKostenTekst").innerHTML = "en verzendkosten*";
 	} else {
-		verzendPerStuk = -1;
-		document.getElementById("verzendKostenTekst").innerHTML = ", excl. verzendkosten*";
-	}
-	
-	verzendingKost = verzendPerStuk * totaalAantal;
-	
-	var kostprijsWater = 20 * water;
-	var kostprijsCD = 10 * CD;
-	var kostprijsDuurzaam = 20 * duurzaam;
-	
-	var uitvoer = kostprijsWater + kostprijsCD + kostprijsDuurzaam + verzendingKost;
-	
-	if (verzendingKost == -1) {
 		verzendingKost = "XX";
-		verzendPerStuk = "XX"
+		verzendPerStuk = "XX";
+		document.getElementById("verzendKostenTekst").innerHTML = ", excl. verzendkosten*";
 	}
 
 	var totaalZonderBTW = uitvoer;

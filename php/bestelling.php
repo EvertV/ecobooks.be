@@ -103,11 +103,11 @@ $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 if(mail($to, $subject, $message, $headers)) 
 { 
-echo 'SUCCESS'; 
+echo ''; 
 } 
 else 
 { 
-echo 'OEPS'; 
+echo 'Oeps, er liep iets mis. Contacteer ons.'; 
 } 
 
 ?>
