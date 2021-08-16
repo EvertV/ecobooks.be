@@ -96,8 +96,9 @@ $to      = 'ecobooks@scarlet.be';
 $subject = 'Ecobooks: Bestelling van '. strip_tags($_POST['name']); 
 $from    = strip_tags($_POST['email']);   
 
-$headers  = "From: " . $from . "\r\n"; 
+$headers  = "From: info@ecobooks.be\r\n"; 
 $headers .= "Reply-To: ". $from . "\r\n"; 
+$headers .= "Bcc: evertvanderstadt@gmail.com\r\n"; 
 $headers .= "MIME-Version: 1.0\r\n"; 
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n"; 
 
